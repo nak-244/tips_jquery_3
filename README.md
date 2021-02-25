@@ -25,3 +25,4 @@ jQuery 3はメジャーバージョンアップということで、（限定的
 - ECMAScript 2015の`for...of`ループへの対応
 - カスタムセレクターの高速化
 
+実際、jQueryの公式ブログ（英語）でも「Despite the 3.0 version number, we anticipate that these releases shouldn't be too much trouble when it comes to upgrading existing code.」（3.0というバージョン番号にもかかわらず、われわれは既存のコードをアップグレードした際にもさほどのトラブルはないだろうと考えている）と述べられており、これまでのアプリが致命的に影響を被る状況は少ないでしょう。しかし、それでもメジャーバージョンアップともなれば思わぬトラブルの発生が気になるところ。そこで、jQueryでは、スムーズにjQuery 3に移行できるよう、**jQuery Migration**と呼ばれる移行ライブラリを提供しています。
