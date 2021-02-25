@@ -73,4 +73,34 @@ $(function() {
 先述のように、`error`イベントはjQuery 3で削除されていますが、jQuery Migrationを利用することで、1.x／2.xと同じく、正しく動作していることが確認できます。ちなみに、太字のコードをコメントアウト（もしくは削除）すると、コードは正しく動作しない――エラーとなることが確認できます。
 
 ## 非推奨コードを検出する
-このように、jQuery Migrationを利用することで、気軽にjQuery3を導入できますが、もちろん
+このように、jQuery Migrationを利用することで、気軽にjQuery3を導入できますが、もちろん、これはあくまで一時的な措置にすぎません。基本的には、非推奨／削除となったコードは修正し、純粋にjquery3が提供している機能だけでアプリが動作していくようにすべきでしょう。  
+
+そして、非推奨／削除されたメソッドを利用しているコードを検出するためにも、jQuery Migrationは利用できます。ただし、その場合、Production版ではなく、Development版を利用してください。先ほどのリストであれば、太字の部分を以下のように書き換えます（「.min.js」を「.js」に）。
+
+```html
+<script src="https://code.jquery.com/jquery-migrate-3.0.0.js"></script>
+```
+
+これによって、ブラウザーの開発者ツール（コンソール）に問題となるコードを警告ログとして出力できます。先のサンプルの場合は、「JQMIGRATE: jQuery.fn.error() is deprecated」と表示されます。ログと、その詳細については、以下のページも参照してください。
+
+[jQuery Migrate Plugin - Warning Messages［Branch: master］（英語）](https://github.com/jquery/jquery-migrate/blob/master/warnings.md)
+
+あとは、ログを見ながら問題となるコードを修正していくことで、効率的にjQuery 3に対応できます。警告が出なくなったら、jQuery Migrationを外して、jQuery 3単体でも問題なくコードが動作することを確認しておきましょう。
+
+## より古いコードのために
+ただし、jQuery 3向けのjQuery Migrationは、1.11.0／2.1.0以前のjQueryには対応していません。その場合は、いったん、jQuery 1.x／2.x系の最新版（執筆時点では1.12.4、2.2.4）に対応するよう、コードを修正していきましょう。  
+
+これには、jQuery 1.x／2.xの最新版を導入した上で、jQuery 1.x／2.x向けのjQuery Migration（Development版）を適用します。  
+
+```html
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.4.1.js"></script>
+```
+
+あとは警告ログが出なくなるまで、既存のコードを修正していきます。警告ログに関する詳細は、以下のページも参照してください。
+
+[jQuery Migrate Plugin - Warning Messages［Branch: 1.x-stable］（英語）](https://github.com/jquery/jquery-migrate/blob/1.x-stable/warnings.md)
+
+修正が完了したら、jQuery Migrationを外してアプリが問題なく動作することを確認します。これでjQuery 1.x／2.xの最新版への対応ができたはずなので、あとは、前項の手順に沿って、jQuery 3への対応を進めます。
+
+手順として表すと面倒にも感じるかもしれませんが、jQuery 3への移行は一般的にはそれほど難しいことではありません。積極的に移行を進めていきましょう！
