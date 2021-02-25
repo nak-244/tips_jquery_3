@@ -15,13 +15,13 @@
 
 jQuery 3のリリースに伴い、今後はjQuery 1.x／2.x系についても新機能の追加などは行われませんので注意してください。セキュリティフィックスは当面継続されるようですが、今後の開発では、対応すべきブラウザーとも相談しながら、徐々にjQuery 3に移行していくべきでしょう。
 
-### NOTE jQuery3の構成
-jQuery 3では、従来のProduction版（圧縮版）、Development版（非圧縮版）に加えて、Slim版が提供されます。
-- Production版： `https://code.jquery.com/jquery-3.0.0.min.js`
-- Development版： `https://code.jquery.com/jquery-3.0.0.js`
-- Slim版： `https://code.jquery.com/jquery-3.0.0.slim.min.js`
-
-Slim版は、本来のjQueryからAjax、Effect、また、非推奨となった機能を除外して、サイズを低減したバージョンです。Production版の85KBytesに対して、Slim版は68KBytesとなります。
+> ### NOTE jQuery3の構成
+> jQuery 3では、従来のProduction版（圧縮版）、Development版（非圧縮版）に加えて、Slim版が提供されます。
+> - Production版： `https://code.jquery.com/jquery-3.0.0.min.js`
+> - Development版： `https://code.jquery.com/jquery-3.0.0.js`
+> - Slim版： `https://code.jquery.com/jquery-3.0.0.slim.min.js`
+> 
+> Slim版は、本来のjQueryからAjax、Effect、また、非推奨となった機能を除外して、サイズを低減したバージョンです。Production版の85KBytesに対して、Slim版は68KBytesとなります。
 
 ## jQuery 3への移行
 jQuery 3はメジャーバージョンアップということで、（限定的であるとはいえ）破壊的な変更がいくつかなされています。以下に、主な変更点をまとめます。
