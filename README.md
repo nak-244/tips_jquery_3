@@ -31,9 +31,42 @@ jQuery 3はメジャーバージョンアップということで、（限定的
 jQuery Migrationを利用するには、以下のようにページでjQuery Migrateをインポートするだけです。jQuery MigrateはjQueryのプラグインなので、jQuery⇒jQuery Migrateの順でインポートしなければなりません。
 
 ```html
-　class Hoge
-　  def hoge
-　    print 'hoge'
-　  end
-　end
-　```
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery TIPS</title>
+</head>
+<body>
+<div id="list">
+  <a href="https:///re.buildinsider.net/web/jqueryref/index/icon.s.png">
+    jQuery</a>
+  <a href="https:///re.buildinsider.net/web/angularjstips/index/icon.s.png">
+    AngularJS</a>
+  <a href="https:///re.buildinsider.net/web/reacttips/index/icon.s.png">
+    React</a>
+</div>
+<hr />
+<img id="result"  />
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<!--jQuery Migrateを有効化-->
+<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+<script>
+$(function() {
+  // 画像を取得できない場合はデフォルトの画像を表示
+  $('#result').error(function() {
+    $(this).attr('src', 'no_image.gif');
+  })
+  // 初期状態では最初のリンク先画像を表示
+  .attr('src', $('#list a:first').attr('href'));
+
+  // リンククリック時にhref属性の内容を<img>要素に反映
+  $('#list a').click(function(e) {
+    $('#result').attr('src', $(this).attr('href'));
+    e.preventDefault(); // デフォルトの挙動をキャンセル
+  });
+});
+</script>
+</body>
+</html>
+```
